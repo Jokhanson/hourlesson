@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сделай сайт с нуля за 1 час с помощью ChatGPT + HTML</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #007bff;
+            --primary-dark: #0069d9;
+            --secondary: #f8f9fa;
+            --light: #ffffff;
+            --dark: #343a40;
+            --text: #212529;
+            --text-light: #6c757d;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), #004a99);
+            color: var(--light);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            background-color: #e9ecef;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            background-color: var(--light);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s ease;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--secondary);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px var(--shadow);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: """;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.1;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--text-light);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--light);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 5px;
+            color: var(--light);
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.7rem;
+            }
+        }
+
+    .lesson-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 20px;
+        background: #f0f8ff;
+        border-bottom: 2px solid #007bff;
+    }
+    
+    .lesson-nav a {
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+    
+    .lesson-nav a:hover {
+        background: #0056b3;
+        transform: translateY(-3px);
+    }
+    
+    .lesson-step {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        padding: 30px;
+        margin-bottom: 40px;
+        border-left: 4px solid #007bff;
+    }
+    
+    .lesson-step h3 {
+        color: #007bff;
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .lesson-content p {
+        margin-bottom: 20px;
+        line-height: 1.8;
+    }
+    
+    .lesson-box {
+        background: #f8f9ff;
+        border-radius: 10px;
+        padding: 25px;
+        margin: 30px 0;
+        border: 1px solid #e0e7ff;
+    }
+    
+    .lesson-box h4 {
+        color: #0056b3;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .lesson-box ul, .lesson-box ol {
+        padding-left: 25px;
+        margin: 15px 0;
+    }
+    
+    .lesson-box li {
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+    
+    .lesson-tip {
+        background: #e6f2ff;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 3px solid #007bff;
+        font-weight: 500;
+    }
+    
+    pre {
+        background: #2d2d2d;
+        color: #f8f8f2;
+        padding: 20px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 20px 0;
+        font-family: 'Courier New', monospace;
+    }
+    
+    code {
+        background: #f0f8ff;
+        padding: 3px 6px;
+        border-radius: 4px;
+        color: #d63384;
+        font-family: 'Courier New', monospace;
+    }
+    
+    @media (max-width: 768px) {
+        .lesson-nav {
+            padding: 10px;
+        }
+        
+        .lesson-nav a {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .lesson-step {
+            padding: 20px;
+        }
+        
+        .lesson-step h3 {
+            font-size: 1.5rem;
+        }
+    }
+    
+    .header-top {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        padding: 12px 0;
+    }
+    
+    .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #007bff;
+    }
+    
+    .logo span {
+        background: linear-gradient(90deg, #007bff, #00bfff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .main-nav {
+        display: flex;
+        gap: 25px;
+    }
+    
+    .main-nav a {
+        color: #343a40;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        padding: 8px 12px;
+        border-radius: 5px;
+    }
+    
+    .main-nav a:hover {
+        color: #007bff;
+        background: rgba(0, 123, 255, 0.1);
+    }
+    
+    .hero {
+        padding: 140px 0 80px;
+        background: linear-gradient(135deg, #007bff, #004a99);
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+        background-size: cover;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        opacity: 0.9;
+    }
+    
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+    }
+    
+    .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 12px 25px;
+        border-radius: 50px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .stat-item i {
+        font-size: 1.5rem;
+    }
+    
+    .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background-color: white;
+        color: #007bff;
+        padding: 16px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        margin-top: 20px;
+    }
+    
+    .cta-button:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+    
+    .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+    }
+    
+    .scroll-down a {
+        color: white;
+        font-size: 2rem;
+        opacity: 0.7;
+        transition: opacity 0.3s;
+    }
+    
+    .scroll-down a:hover {
+        opacity: 1;
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+        40% {transform: translateY(-20px);}
+        60% {transform: translateY(-10px);}
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 992px) {
+        .hero-content h1 {
+            font-size: 2.4rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .header-top {
+            padding: 10px 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+        }
+        
+        .main-nav {
+            gap: 12px;
+        }
+        
+        .main-nav a {
+            font-size: 0.95rem;
+            padding: 6px 10px;
+        }
+        
+        .hero {
+            padding: 120px 0 60px;
+        }
+        
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+        
+        .hero-stats {
+            gap: 15px;
+        }
+        
+        .stat-item {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .cta-button {
+            padding: 14px 30px;
+            font-size: 1.1rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .hero {
+            padding: 100px 0 50px;
+        }
+        
+        .hero-content h1 {
+            font-size: 1.7rem;
+        }
+        
+        .hero-stats {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .main-nav {
+            display: none; /* Скрываем навигацию на маленьких экранах */
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: #007bff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+    <!-- Обновленная шапка с логотипом и навигацией -->
+    <div class="header-top">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <span>СайтЗаЧас</span>
+                </div>
+                <nav class="main-nav">
+                    <a href="#benefits">Преимущества</a>
+                    <a href="#testimonials">Отзывы</a>
+                    <a href="#lesson">Урок</a>
+                    <a href="#contact">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Герой-секция с оптимизированными отступами -->
+    <div class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Сделай сайт с нуля за 1 час с помощью ChatGPT + HTML</h1>
+                <p class="hero-subtitle">Научитесь создавать рабочие сайты без программирования, дизайнеров и копирайтеров</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Всего 1 час</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Нулевые затраты</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Без программирования</span>
+                    </div>
+                </div>
+                
+                <a href="#contact" class="cta-button">
+                    <i class="fas fa-play-circle"></i> Начать сейчас
+                </a>
+                
+                <div class="scroll-down">
+                    <a href="#benefits">
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Преимущества метода</h2>
+                <p>Почему создание сайтов с ChatGPT - это революционный подход для начинающих</p>
+            </div>
+            
+            <div class="benefits-grid">
+    <div class="benefit-card">
+        <div class="benefit-icon">
+            <i class="fas fa-clock"></i>
+        </div>
+        <h3>Экономия времени</h3>
+        <p>Создавайте полноценные сайты всего за 1 час вместо недель работы. Идеально для срочных проектов и быстрого старта.</p>
+    </div>
+    
+    <div class="benefit-card">
+        <div class="benefit-icon">
+            <i class="fas fa-wallet"></i>
+        </div>
+        <h3>Нулевые затраты</h3>
+        <p>Не нужно нанимать программистов, дизайнеров или копирайтеров. Все необходимое создается с помощью ChatGPT.</p>
+    </div>
+    
+    <div class="benefit-card">
+        <div class="benefit-icon">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3>Простота обучения</h3>
+        <p>Никаких сложных технологий. Освойте базовый HTML и эффективные техники работы с ChatGPT за несколько часов.</p>
+    </div>
+    
+    <div class="benefit-card">
+        <div class="benefit-icon">
+            <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3>Профессиональный результат</h3>
+        <p>Создавайте современные, адаптивные сайты, которые отлично смотрятся на любых устройствах.</p>
+    </div>
+    
+    <!-- Новые добавленные карточки -->
+    <div class="benefit-card">
+        <div class="benefit-icon">
+            <i class="fas fa-sync-alt"></i>
+        </div>
+        <h3>Быстрые правки</h3>
+        <p>Любые изменения на сайте можно сделать за минуты через ChatGPT. Не нужно ждать разработчика или разбираться в сложном коде.</p>
+    </div>
+    
+    <div class="benefit-card">
+        <div class="benefit-icon">
+            <i class="fas fa-rocket"></i>
+        </div>
+        <h3>Мгновенный результат</h3>
+        <p>Видите изменения сразу же в браузере. Никакой компиляции и сложных инструментов - просто сохраняете файл и обновляете страницу.</p>
+    </div>
+</div>
+
+        </div>
+    </section>
+
+    <section class="lesson" id="lesson">
+    <div class="container">
+        <div class="section-title">
+            <h2>Практический урок</h2>
+            <p>Пошаговое руководство по созданию сайта за 1 час</p>
+        </div>
+
+        <!-- Шаг 1: Введение -->
+        <div class="lesson-step" id="step1">
+            <h3><i class="fas fa-play-circle"></i> 1. Введение</h3>
+            <div class="lesson-content">
+                <p>Привет!</p>
+                <p>Если ты когда-либо хотел создать свой сайт, но считал, что это сложно, долго и дорого — ты по адресу. Этот курс покажет, как буквально за 1 час сделать простой, работающий сайт без знаний программирования, без дизайнеров и без копирайтеров — с помощью ChatGPT и базового HTML.</p>
+                
+                <div class="lesson-box">
+                    <h4><i class="fas fa-gift"></i> Что ты получишь:</h4>
+                    <ul>
+                        <li>Пошаговую схему: от идеи до готового сайта</li>
+                        <li>Готовые запросы к нейросети — просто скопируй и вставь</li>
+                        <li>Примеры сайтов: визитка, лендинг, портфолио</li>
+                        <li>Как быстро менять цвета, фото, текст</li>
+                        <li>Инструкцию по размещению сайта в интернете (бесплатно)</li>
+                    </ul>
+                </div>
+                
+                <div class="lesson-box">
+                    <h4><i class="fas fa-user-check"></i> Для кого этот курс:</h4>
+                    <ul>
+                        <li>Для предпринимателей и самозанятых, которым нужен сайт "на вчера"</li>
+                        <li>Для фрилансеров, которые хотят зарабатывать на простых сайтах</li>
+                        <li>Для начинающих разработчиков и студентов</li>
+                        <li>Для тех, кто не хочет учиться 3 месяца, а хочет сделать и использовать</li>
+                    </ul>
+                </div>
+                
+                <div class="lesson-box">
+                    <h4><i class="fas fa-lightbulb"></i> Почему это работает:</h4>
+                    <p>ChatGPT умеет писать код, объяснять, адаптировать под твои цели. Всё, что тебе нужно — уметь копировать, вставлять и немного экспериментировать. Я покажу, как это делать пошагово, без лишнего.</p>
+                    <p>Готов? Тогда открывай следующую страницу — и через час ты увидишь свой сайт в браузере.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Шаг 2: Как работает -->
+        <div class="lesson-step" id="step2">
+            <h3><i class="fas fa-cogs"></i> 2. Как работает связка: ChatGPT + HTML + хостинг</h3>
+            <div class="lesson-content">
+                <p>Самое главное — ты не создаёшь сайт с нуля вручную, а используешь мощные инструменты, которые делают это за тебя.</p>
+                
+                <div class="lesson-box">
+                    <h4><i class="fab fa-android"></i> Что делает ChatGPT?</h4>
+                    <p>ChatGPT — это нейросеть, которая умеет:</p>
+                    <ul>
+                        <li>писать HTML-код под твои задачи (например, сайт для автомастерской)</li>
+                        <li>адаптировать стиль (цвета, шрифты, кнопки)</li>
+                        <li>добавлять блоки: формы, отзывы, галереи</li>
+                        <li>объяснять, что куда вставлять и почему это работает</li>
+                    </ul>
+                    <p class="lesson-tip">Главное — правильно сформулировать запрос. Ты не пишешь код — ты даёшь команду.</p>
+                    <p>Пример запроса:<br><code>"Сделай одностраничный лендинг для услуги 'Ремонт компьютеров', с заголовком, кнопкой и отзывами клиентов"</code></p>
+                </div>
+                
+                <div class="lesson-box">
+                    <h4><i class="fas fa-code"></i> Что такое HTML и зачем он тебе?</h4>
+                    <p>HTML — это язык разметки, на котором строятся сайты. Он отвечает за структуру: где заголовок, где картинка, где кнопка.</p>
+                    <pre>&lt;h1&gt;Ремонт компьютеров&lt;/h1&gt;
+&lt;p&gt;Профессионально, быстро, недорого&lt;/p&gt;
+&lt;button&gt;Заказать&lt;/button&gt;</pre>
+                    <p>Ты не обязан писать это вручную — ты просто вставляешь сгенерированный ChatGPT-код в готовый шаблон или файл и смотришь результат в браузере.</p>
+                </div>
+                
+                <div class="lesson-box">
+                    <h4><i class="fas fa-cloud-upload-alt"></i> Как хостинг и домен размещают твой сайт в интернете?</h4>
+                    <p>После того как сайт готов, его можно:</p>
+                    <ul>
+                        <li>просматривать локально (только ты видишь у себя на компьютере)</li>
+                        <li>или разместить в интернете (чтобы увидели все)</li>
+                    </ul>
+                    <p>Для этого тебе понадобится:</p>
+                    <ul>
+                        <li>либо бесплатный хостинг (например, GitHub Pages)</li>
+                        <li>либо простой недорогой вариант с авторазмещением (например, Tilda, Netlify)</li>
+                    </ul>
+                    <p class="lesson-tip">Ты не будешь ничего "загружать через FTP", всё делается в 2–3 клика</p>
+                </div>
+                
+                <div class="lesson-box">
+                    <h4><i class="fas fa-list-ol"></i> Как всё будет работать пошагово:</h4>
+                    <ol>
+                        <li>Придумываешь, какой сайт тебе нужен</li>
+                        <li>Даёшь команду ChatGPT → получаешь HTML-код</li>
+                        <li>Вставляешь его в текстовый редактор</li>
+                        <li>Сохраняешь файл как index.html</li>
+                        <li>Открываешь в браузере и смотришь</li>
+                        <li>При желании — загружаешь онлайн</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Остальные шаги 3-5 аналогично -->
+    </div>
+</section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Отзывы учеников</h2>
+                <p>Что говорят люди, освоившие этот метод</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Я всегда боялся создавать сайты, думал это слишком сложно. Этот метод изменил все! Мой первый сайт был готов за 50 минут, и клиент остался доволен. Теперь могу брать заказы на фрилансе."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ИП</div>
+                        <div class="author-info">
+                            <h4>Иван Петров</h4>
+                            <p>Начинающий веб-разработчик</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Как владелец малого бизнеса, я не мог позволить себе дорогой сайт. Благодаря этому методу я создал отличный сайт для своей пекарни за вечер! Теперь у меня есть онлайн-визитка, и клиенты находят меня через интернет."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ОС</div>
+                        <div class="author-info">
+                            <h4>Ольга Сидорова</h4>
+                            <p>Владелец пекарни "Сладкий уголок"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Я преподаватель, и мне нужно было быстро создать сайт для своего курса. Метод с ChatGPT превзошел все ожидания! За час у меня был готовый, красивый сайт с адаптивным дизайном. Теперь рекомендую этот подход всем коллегам."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">АК</div>
+                        <div class="author-info">
+                            <h4>Анна Козлова</h4>
+                            <p>Преподаватель университета</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Начните создавать сайты уже сегодня!</h2>
+                <p>Оставьте заявку, чтобы получить доступ к уроку</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" class="form-control" placeholder="Введите ваше имя" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="Введите ваш email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Ваши ожидания от урока</label>
+                        <textarea id="message" class="form-control" placeholder="Расскажите, что вы хотите создать с помощью этого метода..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Получить доступ к уроку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy; 2023 "Сделай сайт за 1 час". Все права защищены.</p>
+                    <p>Этот сайт был создан с помощью ChatGPT и базового HTML</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Show success message
+            alert(`Спасибо, ${name}! Доступ к уроку был отправлен на ${email}. Проверьте вашу почту.`);
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
